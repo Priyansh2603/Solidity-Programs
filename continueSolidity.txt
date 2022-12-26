@@ -1,0 +1,26 @@
+//SDPX-License-Identifier: MIT
+pragma solidity >=0.8.7;
+contract ArrayStorage{
+
+    Person public Ravi = Person("Ravi", 21,  true,  0xfA7864FD5de0647ddecF26bf10C0Ec5AAd8cC67B);
+
+    struct Person{
+        string name;
+        uint age;
+        bool white;
+        address meta; 
+    }
+    function read(string memory names, uint ages) public {
+       Ravi.name = names;
+       Ravi.age =ages;
+       friends.push(Ravi);
+    }
+    Person[] public friends;
+   
+//    friends.push(Ravi);
+    function arrayStore(string memory _name, uint _age, bool _white, address _meta) public{
+         Person memory newPerson = Person(_name, _age,_white, _meta);
+   
+         friends.push(newPerson);
+    }
+}
